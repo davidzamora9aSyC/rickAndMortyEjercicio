@@ -17,7 +17,13 @@ function personaje({personaje}) {
            {personaje.name}
          </Link>
        </Card.Title>
-       <Card.Text>{personaje.species}</Card.Text>
+       <Card.Text>
+        <div>
+        Especies: {personaje.species}
+
+        </div>
+
+        </Card.Text>
      </Card.Body>
    </Card>
  );

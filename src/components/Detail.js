@@ -21,7 +21,32 @@ export default function Detail() {
             {personaje.name}
           </Link>
         </h2>
-        <p>{personaje.species}</p>
+        <div className="mt-1">
+        Especies: {personaje.species}
+
+        </div>
+        <div className="mt-1">
+        Estatus: {personaje.status}
+
+        </div>
+        <div className="mt-1">
+        Gender: {personaje.gender}
+
+        </div>
+        <div className="mt-1">
+        Origin: {personaje.origin.name}
+
+        </div>
+        <div className="mt-1">
+        Location: {personaje.location.name}
+
+        </div>
+
+        
+       
+        
+        
+        
       </div>
       
     </div>
