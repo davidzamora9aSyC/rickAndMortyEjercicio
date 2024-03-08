@@ -8,6 +8,7 @@ import Form from "react-bootstrap/Form";
 function Personajes() {
   const [personajes, setPersonajes] = useState([]);
   const [busqueda, setBusqueda] = useState("");
+  const [personajesFiltrados, setPersonajesFiltrados] = useState([]);
 
   useEffect(() => {
     const URL = "https://rickandmortyapi.com/api/character";
@@ -15,13 +16,16 @@ function Personajes() {
       .then((data) => data.json())
       .then((data) => {
         setPersonajes(data.results);
+        setPersonajesFiltrados(data.results); 
       });
   }, []);
 
-  const personajesFiltrados = personajes.filter((personaje) =>
-    personaje.name.toLowerCase().includes(busqueda.toLowerCase())
-  );
-
+  useEffect(() => {
+    const filtrados = personajes.filter((personaje) =>
+      personaje.name.toLowerCase().includes(busqueda.toLowerCase())
+    );
+    setPersonajesFiltrados(filtrados);
+  }, [busqueda, personajes]);
 
   const handleBusquedaChange = (event) => {
     setBusqueda(event.target.value);
